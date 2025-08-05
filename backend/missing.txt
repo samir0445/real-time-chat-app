@@ -1,0 +1,6 @@
+ this app assume that all user is want to talk with everyon
+
+ 1-- friend access is missing
+ 2 -- video calll
+ 3 -- community chat
+ 
