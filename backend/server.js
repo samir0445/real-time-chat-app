@@ -6,7 +6,7 @@ import "dotenv/config"
 import connectDB from "./config/db.js";
 import userRoute from "./routes/user.route.js";
 import messageRouter from "./routes/message.route.js";
-import Server from "socket.io";
+import {Server} from "socket.io";
 
 const app = express();
 // creating basic node server for socket io bcz we need in futher process

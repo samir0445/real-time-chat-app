@@ -3,4 +3,8 @@
  1-- friend access is missing
  2 -- video calll
  3 -- community chat
+
+ 15 aug date errors
+ api/auth/check is throwing errors
+ 
  

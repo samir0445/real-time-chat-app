@@ -8,7 +8,7 @@ messageRouter.get("/user" , protectRoute , getUsersForSidebar);
 
 messageRouter.get("/:id" , protectRoute , getMessage);
 
-messageRouter.put("mark/:id" , protectRoute , markMessageAsSeen );
+messageRouter.put("/mark/:id" , protectRoute , markMessageAsSeen );
 
 messageRouter.post("/send/:id" ,protectRoute , sendMessage);
 
