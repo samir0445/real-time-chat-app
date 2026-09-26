@@ -12,9 +12,12 @@ import { Server } from "socket.io"; // ✅ Correct import
 const app = express();
 const server = http.createServer(app);
 
+const frontendUrl = process.env.FRONTEND_URL;
 // Initialize socket.io server
 export const io = new Server(server, {
-  cors: { origin: "*" },
+  cors: { origin: frontendUrl,
+    methods: ["GET", "POST"],
+    credentials: true }
 });
 
 // Store online users
