@@ -21,6 +21,8 @@ import pic3 from "./pic3.png";
 import pic4 from "./pic4.png";
 import img1 from "./img1.jpg";
 import img2 from "./img2.jpg";
+import logo_chathub from "./logo_chathub.png";
+import chathub from "./chathub.png";
 
 const assets = {
   avatar_icon,
@@ -30,6 +32,8 @@ const assets = {
   logo_icon,
   slack_logo,
   logo,
+  logo_chathub,
+  chathub,
   search_icon,
   send_button,
   menu_icon,

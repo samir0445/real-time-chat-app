@@ -26,7 +26,6 @@ export const getUserForSidebar = async (req, res) => {
     await Promise.all(promises);
     res.json({ success: true, users: filteredUsers, unseenMessages });
   } catch (error) {
-    console.log(error.Message);
     res.json({ success: false, message: error.message });
   }
 };
@@ -50,20 +49,17 @@ export const getMessages = async (req, res) => {
 
     res.json({ success: true, messages });
   } catch (error) {
-    console.log(error.Message);
     res.json({ success: false, message: error.message });
   }
 };
 
 // api to mark message as seen using message id
-
 export const markMessageAsSeen = async (req, res) => {
   try {
     const { id } = req.params;
     await Message.findByIdAndUpdate(id, { seen: true });
     res.json({ success: true });
   } catch (error) {
-    console.log(error.Message);
     res.json({ success: false, message: error.message });
   }
 };
@@ -77,7 +73,10 @@ export const sendMessage = async (req, res) => {
 
     let imageUrl;
     if (image) {
-      const uploadResponse = await cloudinary.uploader.upload(image);
+      const uploadResponse = await cloudinary.uploader.upload(image, {
+        resource_type: "auto",
+        folder: "chat_images",
+      });
       imageUrl = uploadResponse.secure_url;
     }
 
@@ -87,6 +86,7 @@ export const sendMessage = async (req, res) => {
       text,
       image: imageUrl,
     });
+
     //Emit the new message to the receiver's socket
     const receiverSocketId = userSocketMap[receiverId];
     if (receiverSocketId) {
@@ -94,7 +94,6 @@ export const sendMessage = async (req, res) => {
     }
     res.json({ success: true, newMessage });
   } catch (error) {
-    console.log(error.Message);
     res.json({ success: false, message: error.message });
   }
 };

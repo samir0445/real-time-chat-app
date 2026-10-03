@@ -1,8 +1,10 @@
-export function formatMessageTime() {
-  const date = new Date();
+export function formatMessageTime(dateString) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
   return date.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
-    hour12: false,
+    hour12: true,
   });
 }
+
